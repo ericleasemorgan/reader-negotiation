@@ -9,6 +9,22 @@ This software suite describes and demonstrates how to apply an HTTP application 
 Introduction
 ------------
 
+At its core, HTTP is a client-server protocol. A client application -- often called the "user-agent" -- sends a request to a server application. This request takes the form of a URL. The server processes the request and returns the result. The result is usually HTML intended to be rendered by the user-agent -- your Web browser.
+
+But such is an overly simplified interpretation of HTTP. In reality user-agent requests can include a great deal more information than a simple URL, and most user-agents do send a great deal more information. For example, user-agents may send information naming the user-agent: Chrome, Firefox, Safari, etc. User-agents may send creditials for the purposes of access control (authentication and authorization). The most common type of additional information is used to elaborate on the given URL usually for the purposes supporting search.
+
+For the purposes of this software suite, we are interested in the user-agent requesting a URL as well as a content-type; we want to specify the format of result. Put another way, HTML is not always the most desireable format of the returned result because HTML is not as machine-readable as to be expected; while HTML can be both well-formed and valid, it usually not, and if it is, parsing it is usually overly complicated. (This is why I usually run the other way when a project requires screen scraping; screen scraping is kinda like reaching around your head to scratch your ear.)
+
+"So," you might ask, "what kinds of formats might the user-agent request?" The short answer is, "Formats easily readable by computer applications." The longer answer is, "Highly structured formats such as but not limited to: comma-separated values (CVS), tab-separated values (TSV), Extensible Mark-up Langauge (XML), JavaScript Object Notation (JSON), or Graph Modeling Language (GML) formats. Other, less computable but very useful formats include plain text, compressed zip, and Portable Document Format (PDF) formats."
+
+And then you might say, "So what? Why should I care?" To which I reply, "Information is manifested in many formats, and different formats lend themselves to different intepretations of the given information. By requesting different content-types from an HTTP server, the developer -- working in conjuction with domain experts -- is empowered to interpret the given information in their own ways and/or enabled to create interfaces to the information which the developer (and domain expert) find more useful.
+
+"Okay. I'm sold. Now what?" Read on.
+
+
+Reader Implemented Content-Type
+-------------------------------
+
 
 ---
 Eric Lease Morgan &lt;eric_morgan@infomotions.com&gt;  
