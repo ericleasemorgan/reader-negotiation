@@ -52,6 +52,7 @@ But HTML is often verbose and not easily parsable. To overcome this limitation, 
 
 	curl -L -H 'Accept: application/json' http://carrels.distantreader.org
 
+
 	curl -L -H 'Accept: text/csv' http://carrels.distantreader.org
 
 
