@@ -27,7 +27,7 @@ Reader Implemented Content-Types
 
 The HTTP server at http://carrels.distantreader.org hosts a collection of approximately 3,000 data sets affectionately called "study carrels". As data sets, the study carrels are designed to be read by computer applications as well as people. More importantly, each study carrel is rooted in one or more narrative documents (PDF files, Word files, email messages, plain text files, etc.) and modeled in a variety of ways. Through the exploitation of study carrels the student, researcher, or scholar can read, use, and understand large volumes of content quickly and easily. For more detail about study carrels, see an [example readme file](./etc/readme.txt) associated with each carrrel.
 
-The HTTP server at http://carrels.distantreader.org has been configured to accept and process a variety of different content-types, and each type is associated with different format of information. Given the root URL -- http://carrels.distantreader.org -- and the content-types listed below, the developer can download, interact with, and intepret study carrel information in ways only limited by their imagination. The content-types and formats are listed here:
+The HTTP server at http://carrels.distantreader.org has been configured to accept and process a variety of different content-types, and each type is associated with a different format of information. Given the root URL -- http://carrels.distantreader.org -- and the content-types listed below, the developer can download, interact with, and intepret study carrel information in ways only limited by their imagination. The configured content-types and formats are listed here:
 
 | content-types         | formats                       |
 | --------------------- | ----------------------------- |
@@ -42,6 +42,11 @@ The HTTP server at http://carrels.distantreader.org has been configured to accep
 | text/tsv              | tab-separated values (TSV)    |
 | text/xml              | generic XML                   |
 
+So how can this be exploited? Well, for example, we can employ a user-agent called "curl" to request an HTML version of the content at the root of http://carrels.distantreader.org:
+
+`curl -L -H 'Accept: text/html' http://carrels.distantreader.org`
+
+The result will be a very long document intended to be rendered by a Javascript-enabled Web browser.
 
 
 
