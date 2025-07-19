@@ -1,0 +1,6 @@
+<div class="mySlides fade">
+  <div class="numbertext">##INDEX## of ##COUNT##</div>
+  <img src="##URL##" style="width:100%">
+  <div class="text">##CAPTION##</div>
+</div>
+
