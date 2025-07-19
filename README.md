@@ -44,7 +44,7 @@ The HTTP server at http://carrels.distantreader.org has been configured to accep
 
 So how can this be exploited? Well, for example, we can employ a user-agent called "curl" to request an HTML version of the content at the root of http://carrels.distantreader.org:
 
-`curl -L -H 'Accept: text/html' http://carrels.distantreader.org`
+	`curl -L -H 'Accept: text/html' http://carrels.distantreader.org`
 
 The result will be a very long document intended to be rendered by a Javascript-enabled Web browser.
 
