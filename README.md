@@ -56,7 +56,7 @@ Or, if you prefer, a JSON version:
 
 	curl -L -H 'Accept: application/json' http://carrels.distantreader.org
 
-In either case, the result is a set of well-structured information easily parsable by any number of computer programming language libraries and/or desktop applications. For example, the the CSV format output can be directed to a file and then opened in your favorite spreadsheet application or analysis program (like [OpenRefine](https://openrefine.org):
+In either case, the result is a set of well-structured information easily parsable by any number of computer programming language libraries and/or desktop applications. For example, the the CSV format output can be directed to a file and then opened in your favorite spreadsheet application or analysis program (like [OpenRefine](https://openrefine.org)):
 
 	curl -L -H 'Accept: text/csv' http://carrels.distantreader.org > carrels.csv
 
