@@ -46,7 +46,13 @@ So how can this be exploited? Well, for example, we can employ a user-agent call
 
 	curl -L -H 'Accept: text/html' http://carrels.distantreader.org
 
-The result will be a very long document intended to be rendered by a Javascript-enabled Web browser.
+The result will be a very long document HTML stream listing all of the study carrels in the collection and the briefest of descriptions of each.
+
+But HTML is often verbose and not easily parsable. To overcome this limitation, we can request either JSON or CSV listings of all the study carrels and their descriptions:
+
+	curl -L -H 'Accept: application/json' http://carrels.distantreader.org
+
+	curl -L -H 'Accept: text/csv' http://carrels.distantreader.org
 
 
 
