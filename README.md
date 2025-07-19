@@ -42,13 +42,13 @@ The HTTP server at http://carrels.distantreader.org has been configured to accep
 | text/tsv              | tab-separated values (TSV)    |
 | text/xml              | generic XML                   |
 
-So how can this be exploited? Well, for example, we can employ a user-agent called "curl" to request an HTML version of the content at the root of http://carrels.distantreader.org:
+So how can this be exploited? Well, for example, we can employ a user-agent called "[curl](https://curl.se)" to request an HTML version of the content at the root of http://carrels.distantreader.org:
 
 	curl -L -H 'Accept: text/html' http://carrels.distantreader.org
 
-The result will be a very long document HTML stream listing all of the study carrels in the collection and the briefest of descriptions of each.
+The result will be a very long HTML stream listing all of the study carrels in the collection and the briefest of descriptions of each. This result is intended to be rendered by forgiving and Javascript-enable Web browsers like Chrome, Firefox, or Safari.
 
-But HTML is often verbose and not easily parsable. To overcome this limitation, we can request either a CSV version of the same data:
+But HTML is often verbose and not easily parsable. To overcome this limitation, we can request a CSV version of the same data:
 
 	curl -L -H 'Accept: text/csv' http://carrels.distantreader.org
 
@@ -56,7 +56,9 @@ Or, if you prefer, a JSON version:
 
 	curl -L -H 'Accept: application/json' http://carrels.distantreader.org
 
+In either case, the result is a set of well-structured information easily parsable by any number of computer programming language libraries and/or desktop applications. For example, the the CSV format output can be directed to a file and then opened in your favorite spreadsheet application or analysis program (like [OpenRefine](https://openrefine.org):
 
+	curl -L -H 'Accept: text/csv' http://carrels.distantreader.org > carrels.csv
 
 ---
 Eric Lease Morgan &lt;eric_morgan@infomotions.com&gt;  
