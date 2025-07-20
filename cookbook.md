@@ -50,10 +50,12 @@ Now, in the form of a CSV stream, request a list of all study carrels, pipe the 
 	curl -H "Accept: text/csv" http://carrels.distantreader.org | csvlook | less -S
 
 
-# JSON output; CVS output is okay, but JSON is often more preferable
+JSON Output
+-----------
 
-# in the form of JSON, get a list of all carrels
-curl -L -H "Accept: application/json" http://carrels.distantreader.org
+CSV is a well-understood content type, but JSON is often deemed easier to use. That said, request a list of all of the server's study carrels in the form of a JSON stream:
+
+	curl -H "Accept: application/json" http://carrels.distantreader.org
 
 # install jq, a software suite for JSON manipulation; see https://jqlang.org
 
