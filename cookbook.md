@@ -109,12 +109,38 @@ Filters can be quite expressive, and here is a command which searches the catalo
 
 Repeat the previous two commands with different search terms. Such will give you flavor for the scope of the study carrels. For extra credit, read and practice on jq filters. By design, there is no search interface to the study carrels at http://carrels.distantreader.org. See http://catalog.distantreader.org or http://index.distantreader.org instead.
 
+
 Exploring and Reading Specific Study Carrels
 --------------------------------------------
 
-Once you have identified a study carrel of interest, the full functionality of content-negotiaion comes into play. This section introduces how to explore and read specific study carrels.
+Once you have identified a study carrel of interest, the full functionality of content-negotiaion comes into play. Thus, this section introduces how to explore and read specific study carrels.
 
-Again, study carrels are data sets, and each study carrel is rooted in the same data structure. See an [example readme file](./etc/readme.txt) associated with each study carrel to learn about this structure.
+Remember, study carrels are data sets, and each study carrel is rooted in exactly the same data structure. See an [example readme file](./etc/readme.txt) associated with each study carrel to learn about this structure.
+
+Now, for fun, let's use English translations of Homer's Iliad and Odyssey as an example. The identifier in question is author-homer-gutenberg. First, request a summary of the carrel's content, and the result will be an HTML stream intended to be rendered by the typical Web browser:
+
+	curl -H 'Accept: text/html' http://carrels.distantreader.org/author-homer-gutenberg/
+
+This same resource -- http://carrels.distantreader.org/author-homer-gutenberg/ -- has been modeled in a number of different ways and for different purposes. For example, a plain text version of the resource returns a bibliographic descxription of each item in the carrel:
+
+	curl -H 'Accept: text/plain' http://carrels.distantreader.org/author-homer-gutenberg/
+
+The same information can be garnered as JSON, and one can then use jq filters extract and reformat the results:
+
+	curl -H 'Accept: application/json' http://carrels.distantreader.org/author-homer-gutenberg/ | jq | less -S
+
+For example you can merely output all of the identifiers in the carrel:
+
+	curl -H 'Accept: application/json' http://carrels.distantreader.org/author-homer-gutenberg/ | jq -r '.[].id'
+	
+Many, if not most or all, of the carrels are associated with linked data (RDF/XML) files. To get the RDF/XML file of this carrel, try:
+
+	curl -H 'Accept: application/xml' http://carrels.distantreader.org/author-homer-gutenberg/
+
+For extra credit, pipe the result through a utility called "xmllint" and then your pager for better readability:
+
+	curl -H 'Accept: application/xml' http://carrels.distantreader.org/author-homer-gutenberg/ | xmllint --format - | less -S
+	
 
 ---
 Eric Lease Morgan &lt;eric_morgan@infomotions.com&gt;  
