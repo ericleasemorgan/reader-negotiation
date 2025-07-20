@@ -19,9 +19,13 @@ Now, do the same thing, but specifically request HTML content:
 
 	curl -H "Accept: text/html" http://carrels.distantreader.org
 
-If you request a type of content that is not valid for any reason, then the server will return HTTP error 406 (Not Acceptable):
+If you request a type of content that is not valid for any reason, then the server will return HTTP error 406 (Not Acceptable) as well as an HTML snippet outlining that content types are acceptable:
 
 	curl -H "Accept: foo/bar" http://carrels.distantreader.org
+
+Power users may way to add the -I switch to the command, and the result will be a bit more computer-friendly, but not necessarily more readable:
+
+	curl -I -H "Accept: foo/bar" http://carrels.distantreader.org
 
 
 # CSV output
