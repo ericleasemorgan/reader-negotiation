@@ -27,6 +27,8 @@ Power users may way to add the -I switch to the command, and the result will be 
 
 	curl -I -H "Accept: foo/bar" http://carrels.distantreader.org
 
+Keep the -I switch in mind for future debugging purposes.
+
 
 # CSV output
 
