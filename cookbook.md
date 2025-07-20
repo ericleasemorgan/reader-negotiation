@@ -69,25 +69,25 @@ Filtering JSON Output
 
 Each study carrel is described and characterized in a number of ways, as the the following JSON snippet illustrates:
 
-<pre>{
-    "id": "author-homer-gutenberg",
-    "type": "author",
-    "title": "Homer",
-    "source": "gutenberg",
-    "items": 48,
-    "words": 272735,
-    "flesch": 76,
-    "browse": "http://carrels.distantreader.org/author-homer-gutenberg/index.xml",
-    "download": "http://carrels.distantreader.org/author-homer-gutenberg/index.zip",
-    "read": "http://carrels.distantreader.org/author-homer-gutenberg/index.htm",
-    "bibliography (JSON)": "http://carrels.distantreader.org/author-homer-gutenberg/index.json",
-    "bibliography (plain text)": "http://carrels.distantreader.org/author-homer-gutenberg/index.txt",
-    "metadata": "http://carrels.distantreader.org/author-homer-gutenberg/index.csv",
-    "provenance": "http://carrels.distantreader.org/author-homer-gutenberg/index.tsv",
-    "gml (Graph Modeling Language)": "http://carrels.distantreader.org/author-homer-gutenberg/index.gml",
-    "RDF/XML": "http://carrels.distantreader.org/author-homer-gutenberg/index.rdf",
-    "keywords": "son; trojans; ulysses; achaeans; man; ships; hector",
-    "date": "2024-12-20"
+<pre>  {
+  "id": "author-homer-gutenberg",
+  "type": "author",
+  "title": "Homer",
+  "source": "gutenberg",
+  "items": 48,
+  "words": 272735,
+  "flesch": 76,
+  "browse": "http://carrels.distantreader.org/author-homer-gutenberg/index.xml",
+  "download": "http://carrels.distantreader.org/author-homer-gutenberg/index.zip",
+  "read": "http://carrels.distantreader.org/author-homer-gutenberg/index.htm",
+  "bibliography (JSON)": "http://carrels.distantreader.org/author-homer-gutenberg/index.json",
+  "bibliography (plain text)": "http://carrels.distantreader.org/author-homer-gutenberg/index.txt",
+  "metadata": "http://carrels.distantreader.org/author-homer-gutenberg/index.csv",
+  "provenance": "http://carrels.distantreader.org/author-homer-gutenberg/index.tsv",
+  "gml (Graph Modeling Language)": "http://carrels.distantreader.org/author-homer-gutenberg/index.gml",
+  "RDF/XML": "http://carrels.distantreader.org/author-homer-gutenberg/index.rdf",
+  "keywords": "son; trojans; ulysses; achaeans; man; ships; hector",
+  "date": "2024-12-20"
   }</pre>
 
 
