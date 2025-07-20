@@ -41,12 +41,13 @@ Do the same thing, but this time, redirect the stream to a file, and then open t
 
 	curl -H "Accept: text/csv" http://carrels.distantreader.org > catalog.csv
 
-A suite of software called "csvkit" is a set of command-line scripts written in Python and the scripts eat CSV lunch. See https://csvkit.readthedocs.io and install csvkit:
+A suite of software called "csvkit" is a set of command-line scripts written in Python, and the scripts eat CSV lunch. See https://csvkit.readthedocs.io and install csvkit:
 
 	pip install csvkit
 
-# get a list of all carrels and pipe the to csvlook for browsing purposes
-curl -L -H "Accept: text/csv" http://carrels.distantreader.org | csvlook | less -S
+Now, in the form of a CSV stream, request a list of all study carrels, pipe the result to a csvkit tool called "csvlook", and pipe the result to a pager called "less". Browsing the result ought to be now much easier:
+
+	curl -H "Accept: text/csv" http://carrels.distantreader.org | csvlook | less -S
 
 
 # JSON output; CVS output is okay, but JSON is often more preferable
