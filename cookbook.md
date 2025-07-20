@@ -103,6 +103,10 @@ The result ought to be a list of study carrel identifiers and look something lik
   subject-homer-gutenberg
 </pre>
 
+Filters can be quite expressive, and here is a command which searches the catalog for items described with the keyword "knowledge" and returns the associated identifiers and keywords:
+
+	curl -H "Accept: application/json" http://carrels.distantreader.org | jq -r '.[]|.id,.keywords' | grep knowledge
+
 ---
 Eric Lease Morgan &lt;eric_morgan@infomotions.com&gt;  
 July 20, 2025
