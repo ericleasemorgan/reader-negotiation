@@ -11,7 +11,7 @@ Getting Started
 
 First, you will need a command-line user-agent application. Install an application called "curl", a very well respected piece of software. See https://curl.se.
 
-Next, open up your terminal application, and request content from the server. By default, the server will respond with a stream of HTML intended to be rendered by a Web browser such as Chrome, Firefox, or Safari:
+Next, open up your terminal application, and request content from the server. By default, the server will respond with a stream of HTML intended to be rendered by a Web browser such as Chrome, Firefox, or Safari. The stream is a list ("catalog") of all study carrels and the briefest of descriptions of each:
 
 	curl http://carrels.distantreader.org
 
@@ -30,13 +30,16 @@ Power users may way to add the -I switch to the command, and the result will be 
 Keep the -I switch in mind for future debugging purposes.
 
 
-# CSV output
+CSV Output
+----------
 
-# in the form of CSV, get a list of all carrels
-curl -L -H "Accept: text/csv" http://carrels.distantreader.org
+The HTML output is fine and serves many use cases very well, but requesting content more suitable for computer processing has many advantages. Comma-separated values (CSV) streams are well understood by many people, and to get a list of all study carrels in the form of a CSV stream, submit:
 
-# do the same but save the result to a file
-curl -L -H "Accept: text/csv" http://carrels.distantreader.org > catalog.csv
+	curl -H "Accept: text/csv" http://carrels.distantreader.org
+
+Do the same thing, but this time, redirect the stream to a file, and then open the file ("catalog.csv") in your favorite spreadsheet application or analysis program (like [OpenRefine](https://openrefine.org/)):
+
+	curl -H "Accept: text/csv" http://carrels.distantreader.org > catalog.csv
 
 # install csvkit, a software suite for CSV manipulation
 pip install csvkit
