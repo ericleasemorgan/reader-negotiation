@@ -94,7 +94,7 @@ Elaborating on the meaning of each metadata element is beyond the scope of this 
 
     curl -H "Accept: application/json" http://carrels.distantreader.org | jq -r '.[]|.id' | grep homer
  
-The result ought to look something like this:
+The result ought to be a list of study carrel identifiers and look something like this:
 
 <pre>
   author-homer-freebo
