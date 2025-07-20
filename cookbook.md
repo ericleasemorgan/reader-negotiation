@@ -69,7 +69,7 @@ Filtering JSON Output
 
 Each study carrel is described and characterized in a number of ways, as the the following JSON snippet illustrates:
 
-`  {
+<pre>{
     "id": "author-homer-gutenberg",
     "type": "author",
     "title": "Homer",
@@ -88,7 +88,7 @@ Each study carrel is described and characterized in a number of ways, as the the
     "RDF/XML": "http://carrels.distantreader.org/author-homer-gutenberg/index.rdf",
     "keywords": "son; trojans; ulysses; achaeans; man; ships; hector",
     "date": "2024-12-20"
-  }`
+  }</pre>
 
 
 ---
