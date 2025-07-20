@@ -92,8 +92,7 @@ Each study carrel is described and characterized with a number of metadata eleme
 
 Elaborating on the meaning of each metadata element is beyond the scope of this document. That said, one has to choose a specific study carrel identifier ("id") in order to go forward. Enumerating identifiers and narrowing them down to a more managable number can be done through the use of jq "filters". Alas, filters are also beyond the scope of this document. Still, the following command will output a list of study carrel identifiers containing "homer":
 
-    curl -H "Accept: application/json" http://carrels.distantreader.org | jq '.[]|.id'
-
+    curl -H "Accept: application/json" http://carrels.distantreader.org | jq -r '.[]|.id' | grep homer
  
 ---
 Eric Lease Morgan &lt;eric_morgan@infomotions.com&gt;  
