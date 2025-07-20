@@ -41,8 +41,9 @@ Do the same thing, but this time, redirect the stream to a file, and then open t
 
 	curl -H "Accept: text/csv" http://carrels.distantreader.org > catalog.csv
 
-# install csvkit, a software suite for CSV manipulation
-pip install csvkit
+A suite of software called "csvkit" is a set of command-line scripts written in Python and the scripts eat CSV lunch. See https://csvkit.readthedocs.io and install csvkit:
+
+	pip install csvkit
 
 # get a list of all carrels and pipe the to csvlook for browsing purposes
 curl -L -H "Accept: text/csv" http://carrels.distantreader.org | csvlook | less -S
