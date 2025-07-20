@@ -57,10 +57,11 @@ CSV is a well-understood content type, but JSON is often deemed easier to use. T
 
 	curl -H "Accept: application/json" http://carrels.distantreader.org
 
-# install jq, a software suite for JSON manipulation; see https://jqlang.org
+Csvkit is to CSV as jq is to JSON. In other words, a program called "jq" is an application which takes JSON as input and provides a means to read/analyze it. See https://jqlang.org and install jq. I'll wait.
 
-# get a list of all carrels and pipe the result to jq for browsing purposes
-curl -L -H "Accept: application/json" http://carrels.distantreader.org | jq | less -S
+After installing jq, repeat the previous request, pipe the result to jq, and pipe that result to less for the purposes of browsing. Take note of the response's structure:
+
+	curl -H "Accept: application/json" http://carrels.distantreader.org | jq | less -S
 
 ---
 Eric Lease Morgan &lt;eric_morgan@infomotions.com&gt;  
