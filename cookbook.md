@@ -57,11 +57,39 @@ CSV is a well-understood content type, but JSON is often deemed easier to use. T
 
 	curl -H "Accept: application/json" http://carrels.distantreader.org
 
-Csvkit is to CSV as jq is to JSON. In other words, a program called "jq" is an application which takes JSON as input and provides a means to read/analyze it. Jq eats JSON as csvkit eats CSV. See https://jqlang.org and install jq. I'll wait.
+Csvkit is to CSV as jq is to JSON. In other words, a program called "jq" is an application which takes JSON as input and provides a means to read/analyze it. See https://jqlang.org and install jq. I'll wait.
 
 After installing jq, repeat the previous request, pipe the result to jq, and pipe that result to less for the purposes of browsing. Take note of the response's structure:
 
 	curl -H "Accept: application/json" http://carrels.distantreader.org | jq | less -S
+
+
+Filtering JSON Output
+---------------------
+
+Each study carrel is described and characterized in a number of ways, as the the following JSON snippet illusdtrates:
+
+  {
+    "id": "author-homer-gutenberg",
+    "type": "author",
+    "title": "Homer",
+    "source": "gutenberg",
+    "items": 48,
+    "words": 272735,
+    "flesch": 76,
+    "browse": "http://carrels.distantreader.org/author-homer-gutenberg/index.xml",
+    "download": "http://carrels.distantreader.org/author-homer-gutenberg/index.zip",
+    "read": "http://carrels.distantreader.org/author-homer-gutenberg/index.htm",
+    "bibliography (JSON)": "http://carrels.distantreader.org/author-homer-gutenberg/index.json",
+    "bibliography (plain text)": "http://carrels.distantreader.org/author-homer-gutenberg/index.txt",
+    "metadata": "http://carrels.distantreader.org/author-homer-gutenberg/index.csv",
+    "provenance": "http://carrels.distantreader.org/author-homer-gutenberg/index.tsv",
+    "gml (Graph Modeling Language)": "http://carrels.distantreader.org/author-homer-gutenberg/index.gml",
+    "RDF/XML": "http://carrels.distantreader.org/author-homer-gutenberg/index.rdf",
+    "keywords": "son; trojans; ulysses; achaeans; man; ships; hector",
+    "date": "2024-12-20"
+  },
+
 
 ---
 Eric Lease Morgan &lt;eric_morgan@infomotions.com&gt;  
