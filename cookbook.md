@@ -67,7 +67,7 @@ After installing jq, repeat the previous request, pipe the result to jq, and pip
 Filtering JSON Output
 ---------------------
 
-Each study carrel is described and characterized in a number of ways, as the the following JSON snippet illustrates:
+Each study carrel is described and characterized with a number of metadata elements, as the the following JSON snippet illustrates:
 
 <pre>  {
     "id": "author-homer-gutenberg",
@@ -90,7 +90,11 @@ Each study carrel is described and characterized in a number of ways, as the the
     "date": "2024-12-20"
   }</pre>
 
+Elaborating on the meaning of each metadata element is beyond the scope of this document. That said, one has to choose a specific study carrel identifier ("id") in order to go forward. Enumerating identifiers and narrowing them down to a more managable number can be done through the use of jq "filters". Alas, filters are also beyond the scope of this document. Still, the following command will output a list of study carrel identifiers containing "homer":
 
+    curl -H "Accept: application/json" http://carrels.distantreader.org | jq '.[]|.id'
+
+ 
 ---
 Eric Lease Morgan &lt;eric_morgan@infomotions.com&gt;  
 July 20, 2025
