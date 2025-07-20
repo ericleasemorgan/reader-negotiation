@@ -64,8 +64,8 @@ After installing jq, repeat the previous request, pipe the result to jq, and pip
     curl -H "Accept: application/json" http://carrels.distantreader.org | jq | less -S
 
 
-Filtering JSON Output
----------------------
+Filtering JSON Output: Getting Study carrel Identifiers
+-------------------------------------------------------
 
 Each study carrel is described and characterized with a number of metadata elements, as the the following JSON snippet illustrates:
 
@@ -105,7 +105,16 @@ The result ought to be a list of study carrel identifiers and look something lik
 
 Filters can be quite expressive, and here is a command which searches the catalog for items described with the keyword "knowledge", returns the associated identifiers and keywords, and pipes the result to less for browsing:
 
-	curl -H "Accept: application/json" http://carrels.distantreader.org | jq -r '.[]|[.id,.keywords]|@tsv' | grep knowledge | less -x 16
+	curl -H "Accept: application/json" http://carrels.distantreader.org | jq -r '.[]|[.id,.keywords]|@tsv' | grep knowledge | less -S -x 64
+
+Repeat the previous two commands with different search terms. Such will give you flavor for the scope of the study carrels. For extra credit, read and practice on jq filters. By design, there is no search interface to the study carrels at http://carrels.distantreader.org. See http://catalog.distantreader.org or http://index.distantreader.org instead.
+
+Exploring and Reading Specific Study Carrels
+--------------------------------------------
+
+Once you have identified a study carrel of interest, the full functionality of content-negotiaion comes into play. This section introduces how to explore and read specific study carrels.
+
+Again, study carrels are data sets, and each study carrel is rooted in the same data structure. See an [example readme file](./etc/readme.txt) associated with each study carrel to learn about this structure.
 
 ---
 Eric Lease Morgan &lt;eric_morgan@infomotions.com&gt;  
