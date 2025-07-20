@@ -94,6 +94,15 @@ Elaborating on the meaning of each metadata element is beyond the scope of this 
 
     curl -H "Accept: application/json" http://carrels.distantreader.org | jq -r '.[]|.id' | grep homer
  
+The result ought to look something like this:
+
+<pre>
+  author-homer-freebo
+  author-homer-gutenberg
+  author-homer_austen_and_thoreau-gutenberg
+  subject-homer-gutenberg
+</pre>
+
 ---
 Eric Lease Morgan &lt;eric_morgan@infomotions.com&gt;  
 July 20, 2025
