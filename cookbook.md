@@ -127,11 +127,14 @@ This same resource -- http://carrels.distantreader.org/author-homer-gutenberg/ -
 
 The same information can be garnered as JSON, and one can then use jq filters extract and reformat the results:
 
-	curl -H 'Accept: application/json' http://carrels.distantreader.org/author-homer-gutenberg/ | jq | less -S
+	curl -H 'Accept: application/json' http://carrels.distantreader.org/author-homer-gutenberg/ | \
+	jq | \
+	less -S
 
 For example you can merely output all of the identifiers in the carrel:
 
-	curl -H 'Accept: application/json' http://carrels.distantreader.org/author-homer-gutenberg/ | jq -r '.[].id'
+	curl -H 'Accept: application/json' http://carrels.distantreader.org/author-homer-gutenberg/ | \
+	jq -r '.[].id'
 	
 Many, if not most or all, of the carrels are associated with linked data (RDF/XML) files. To get the RDF/XML file of this carrel, try:
 
@@ -139,8 +142,13 @@ Many, if not most or all, of the carrels are associated with linked data (RDF/XM
 
 For extra credit, pipe the result through a utility called "xmllint" and then your pager for better readability:
 
-	curl -H 'Accept: application/xml' http://carrels.distantreader.org/author-homer-gutenberg/ | xmllint --format - | less -S
-	
+	curl -H 'Accept: application/xml' http://carrels.distantreader.org/author-homer-gutenberg/ | \
+	xmllint --format - | \
+	less -S
+
+Get the whole carrel:
+
+	curl -H 'Accept: application/zip' http://carrels.distantreader.org/author-homer-gutenberg/ > author-homer-gutenberg.zip
 
 ---
 Eric Lease Morgan &lt;eric_morgan@infomotions.com&gt;  
