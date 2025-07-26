@@ -150,6 +150,15 @@ Get the whole carrel:
 
 	curl -H 'Accept: application/zip' http://carrels.distantreader.org/author-homer-gutenberg/ > author-homer-gutenberg.zip
 
+Here is a tricky one. Extract the identifier and original file extension of all cached items in a carrel. Output the result as a stream of tab-sparated values. Loop through each file to build a URL of the cached item and in parallel, download them:
+
+	curl -L -H 'Accept: application/json' http://carrels.distantreader.org/journal-lawEthicsAndPhilosophy-doaj  | jq -r '.[]|[.id,.extension]|@tsv' | while read ID EXTENSION; do echo "http://carrels.distantreader.org/journal-lawEthicsAndPhilosophy-doaj/cache/$ID$EXTENSION"; done | xargs wget -nv
+
+Such is really overly complicated. Wget can do that in one go:
+
+	wget -np -r http://carrels.distantreader.org/journal-lawEthicsAndPhilosophy-doaj/cache/
+	
+	
 ---
 Eric Lease Morgan &lt;eric_morgan@infomotions.com&gt;  
-July 20, 2025
+July 25, 2025
