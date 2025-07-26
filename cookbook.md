@@ -123,7 +123,7 @@ Now, for fun, let's use English translations of Homer's Iliad and Odyssey as an 
 
 This same resource -- http://carrels.distantreader.org/author-homer-gutenberg/ -- has been modeled in a number of different ways and for different purposes. For example, a plain text version of the resource returns a bibliographic descxription of each item in the carrel:
 
-	curl -H 'Accept: text/plain' http://carrels.distantreader.org/author-homer-gutenberg/
+	curl -H 'Accept: text/plain' http://carrels.distantreader.org/author-homer-gutenberg/ | less -S
 
 The same information can be garnered as JSON, and one can then use jq filters extract and reformat the results:
 
@@ -146,9 +146,10 @@ For extra credit, pipe the result through a utility called "xmllint" and then yo
 	xmllint --format - | \
 	less -S
 
-Get the whole carrel:
+Each carrel is modeled as a compressed zip file, and you can easily "get" it like this:
 
-	curl -H 'Accept: application/zip' http://carrels.distantreader.org/author-homer-gutenberg/ > author-homer-gutenberg.zip
+	curl -H 'Accept: application/zip' http://carrels.distantreader.org/author-homer-gutenberg/ \
+	> author-homer-gutenberg.zip
 
 Here is a tricky one. Extract the identifier and original file extension of all cached items in a carrel. Output the result as a stream of tab-sparated values. Loop through each file to build a URL of the cached item and in parallel, download them:
 
