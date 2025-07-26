@@ -153,13 +153,41 @@ Each carrel is modeled as a compressed zip file, and you can easily "get" it lik
 
 Here is a tricky one. Extract the identifier and original file extension of all cached items in a carrel. Output the result as a stream of tab-sparated values. Loop through each file to build a URL of the cached item and in parallel, download them:
 
-	curl -L -H 'Accept: application/json' http://carrels.distantreader.org/journal-lawEthicsAndPhilosophy-doaj  | jq -r '.[]|[.id,.extension]|@tsv' | while read ID EXTENSION; do echo "http://carrels.distantreader.org/journal-lawEthicsAndPhilosophy-doaj/cache/$ID$EXTENSION"; done | xargs wget -nv
+	curl -L -H 'Accept: application/json' http://carrels.distantreader.org/journal-lawEthicsAndPhilosophy-doaj \
+	| jq -r '.[]|[.id,.extension]|@tsv' \
+	| while read ID EXTENSION; do echo \
+	"http://carrels.distantreader.org/journal-lawEthicsAndPhilosophy-doaj/cache/$ID$EXTENSION"; done \
+	| xargs wget -nv
 
-Such is really overly complicated. Wget can do that in one go:
+Such is overly complicated. Wget can do that in one go:
 
 	wget -np -r http://carrels.distantreader.org/journal-lawEthicsAndPhilosophy-doaj/cache/
 	
-	
+
+Summary
+-------
+
+The host at http://carrels.distantreader.org supports a built-in HTTP protocol called "content-negotiation", and the host responds to the following content types:
+
+  * application/json
+  * application/xhtml+xml
+  * application/xml
+  * application/zip
+  * text/csv
+  * text/gml
+  * text/html
+  * text/plain
+  * text/tsv
+  * text/xml
+
+Send any of these content-types to the host using the HTTP Accept header, and the server will respond with data that is either computable or useful. Don't forget to send these content-types to any resource under the root of the server (such as http://carrels.distantreader.org/author-homer-gutenberg/), and content-negotiation will become even more functional.
+
+
+Next Steps
+----------
+
+Using something like curl to get content works very well, but computing against the content -- except in the most rudimenetary ways -- ought to be done in a more expressive programming language. Next, peruse the scripts in the [./bin/](./bin/) directory to see what you can do with study carrel content was it is downloaded.
+
 ---
 Eric Lease Morgan &lt;eric_morgan@infomotions.com&gt;  
 July 25, 2025
