@@ -105,7 +105,7 @@ The result ought to be a list of study carrel identifiers and look something lik
 
 Filters can be quite expressive, and here is a command which searches the catalog for items described with the keyword "knowledge", returns the associated identifiers and keywords, and pipes the result to less for browsing:
 
-	curl -H "Accept: application/json" http://carrels.distantreader.org | jq -r '.[]|[.id,.keywords]|@tsv' | grep knowledge | less -S -x 64
+	curl -H "Accept: application/json" http://carrels.distantreader.org | jq -r '.[]|[.id,.keywords]|@tsv' | grep knowledge | less -S -x 64 --pattern=knowledge
 
 Repeat the previous two commands with different search terms. Such will give you flavor for the scope of the study carrels. For extra credit, read and practice on jq filters. By design, there is no search interface to the study carrels at http://carrels.distantreader.org. See http://catalog.distantreader.org or http://index.distantreader.org instead.
 
