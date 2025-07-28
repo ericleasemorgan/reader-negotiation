@@ -62,6 +62,16 @@ In either case, the result is a set of well-structured information easily parsab
 
 	curl -L -H 'Accept: text/csv' http://carrels.distantreader.org > carrels.csv
 
+Summary
+-------
+
+The host at http://carrels.distantreader.org/ is configured to support an HTTP protocol called "content negoitation". Send it a GET request and an Accept header, and the host will respond with different models of the given resource. This works for the root node, the second-level resource nodes, and most of the third level study carrel directories. 
+
+Next Steps
+----------
+
+Practice with this distribution's [Cookbook](./cookbook.md) where you will find one-liner techniques of getting content from the server. Once you get that far, peruse the [collection of Python](./bin) scripts to see how the content can get got and then processed.
+
 ---
 Eric Lease Morgan &lt;eric_morgan@infomotions.com&gt;  
 July 19, 2025
